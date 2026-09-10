@@ -11,7 +11,7 @@ pipeline {
 
         stage('pull code') {
             steps {
-                sshagent(['appserver']) {
+                sshagent(['bagusssh']) {
                     sh """
                         ssh -o StrictHostKeyChecking=no ${APP_SERVER} << EOF
                         cd ${DIRECTORY}
@@ -25,7 +25,7 @@ pipeline {
 
         stage('build app') {
             steps {
-                sshagent(['appserver']) {
+                sshagent(['bagusssh']) {
                     sh """
                         ssh -o StrictHostKeyChecking=no ${APP_SERVER} << EOF
                         cd ${DIRECTORY}
@@ -39,7 +39,7 @@ pipeline {
 
         stage('push registry') {
             steps {
-                sshagent(['appserver']) {
+                sshagent([' bagusssh']) {
                     sh """
                         ssh -o StrictHostKeyChecking=no ${APP_SERVER} << EOF
                         cd ${DIRECTORY}
@@ -53,7 +53,7 @@ pipeline {
 
         stage('deploy') {
             steps {
-                sshagent(['appserver']) {
+                sshagent(['bagusssh']) {
                     sh """
                         ssh -o StrictHostKeyChecking=no ${APP_SERVER} << EOF
                         cd ${DIRECTORY}
