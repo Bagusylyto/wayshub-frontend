@@ -1,0 +1,8 @@
+services:
+
+  frontend:
+    container_name: wayshub-frontend
+    image: bagusylyto/wayshub-frontend:dev
+    stdin_open: true
+    ports:
+      - 3000:3000
