@@ -15,7 +15,7 @@ pipeline {
                     sh """
                         ssh -o StrictHostKeyChecking=no ${APP_SERVER} << EOF
                         cd ${DIRECTORY}
-                        git pull origin master
+                        git pull origin main
                         exit
                         EOF
                     """
