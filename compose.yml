@@ -6,3 +6,9 @@ services:
     stdin_open: true
     ports:
       - 3000:3000
+    networks:
+      - wayshub-net
+
+networks:
+  wayshub-net:
+    external: true
